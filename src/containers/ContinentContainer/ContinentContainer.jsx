@@ -17,7 +17,8 @@ class ContinentContainer extends Component {
 
   componentDidUpdate = (prevProps) => {
     if (prevProps.activeTab !== this.props.activeTab) {
-      this.setState({ active_tab: this.props.activeTab },
+      this.setState({ active_tab: this.props.activeTab, countries_in_continent_info: null,
+        active_country_filter: false },
         () => this.requestContinentInfo());
     }
   }
