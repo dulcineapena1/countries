@@ -1,5 +1,6 @@
 import React from 'react';
 import RandomCard from '../RandomCard';
+import './RandomList.css';
 
 const RandomList = (props) => {
   const { countries, onClickContinent } = props;
@@ -21,7 +22,10 @@ const RandomList = (props) => {
 
   return (
     <React.Fragment>
-      {cards_list}
+      <h2>Random Countries</h2>
+      <div className='listContainer'>
+        {cards_list}
+      </div>
     </React.Fragment>
   );
 };

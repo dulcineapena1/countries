@@ -23,11 +23,18 @@ class Main extends Component {
     return (
       <React.Fragment>
         <div className='row'>
-          <div className='col-4'>
-            {random_countries_element}
-          </div>
-          <div className='col-8'>
-            {continent_element}
+          <div className='col-12'>
+            <div className='row'>
+              <h1 className='font-weight-bold pl-3'>Continents</h1>
+            </div>
+            <div className='row'>
+              <div className='col-3'>
+                {random_countries_element}
+              </div>
+              <div className='col-9'>
+                {continent_element}
+              </div>
+            </div>
           </div>
         </div>
       </React.Fragment>
