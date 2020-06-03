@@ -15,7 +15,10 @@ const MainContinent = (props) => {
     <ContinentCard activeTab={activeTab} continentSummary={continentSummary}/>
   );
 
-  let countries_list;
+  let countries_list = (
+    // loader
+    <div>...Loading</div>
+  );
   if (countries) {
     countries_list = (
       <ContinentCountriesList countries={countries}/>

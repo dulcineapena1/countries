@@ -10,6 +10,28 @@ const RandomCard = (props) => {
     </div>
   );
 
+  let continent_name;
+  if (continent.includes('America')) {
+    continent_name = 'Americas';
+  } else {
+    continent_name = continent;
+  }
+
+  let continent_element;
+  if (continent === 'Antarctica') {
+    continent_element = (
+      <p>
+        <u>{continent_name}</u>
+      </p>
+    );
+  } else {
+    continent_element = (
+      <p className='card-link' onClick={() => onClickContinent(continent_name)}>
+        <u>{continent_name}</u>
+      </p>
+    );
+  }
+
   let card = (
     <div className='card m-2'>
       <div className='card-body p-3'>
@@ -23,9 +45,7 @@ const RandomCard = (props) => {
         </p>
         <p className='card-text'>
           <span className='font-weight-bold'>Continent: </span>
-          <a href='#' className='card-link' onClick={() => onClickContinent(continent)}>
-            <u>{continent}</u>
-          </a>
+          {continent_element}
         </p>
       </div>
     </div>
