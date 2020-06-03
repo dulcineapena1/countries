@@ -3,17 +3,20 @@ import MainContinent from '../../components/Continent/MainContinent';
 
 class ContinentContainer extends Component {
   state = {
-    active_tab: 'Africa',
+    active_tab: '',
     continent_info: null,
   }
 
   componentDidMount = () => {
-    this.requestContinentInfo();
+    this.setState({ active_tab: this.props.activeTab },
+      () => this.requestContinentInfo())
   }
 
-  changeTab = (tab) => {
-    this.setState({ active_tab: tab },
-      () => this.requestContinentInfo());
+  componentDidUpdate = (prevProps) => {
+    if (prevProps.activeTab !== this.props.activeTab) {
+      this.setState({ active_tab: this.props.activeTab },
+        () => this.requestContinentInfo());
+    }
   }
 
   requestContinentInfo = () => {
@@ -36,8 +39,8 @@ class ContinentContainer extends Component {
     if (this.state.continent_info) {
       main_continent_element = (
         <MainContinent
-          onChangeTab={this.changeTab}
-          activeTab={this.state.active_tab}
+          onChangeTab={this.props.onChangeTab}
+          activeTab={this.props.activeTab}
           continentInfo={this.state.continent_info}/>
       );
     }

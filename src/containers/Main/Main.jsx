@@ -3,6 +3,14 @@ import RandomContainer from '../RandomCountriesContainer';
 import ContinentContainer from '../ContinentContainer';
 
 class Main extends Component {
+  state = {
+    active_tab: 'Africa',
+  }
+
+  changeTab = (tab) => {
+    this.setState({ active_tab: tab });
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -11,7 +19,7 @@ class Main extends Component {
             <RandomContainer/>
           </div>
           <div className='col-8'>
-            <ContinentContainer/> 
+            <ContinentContainer onChangeTab={this.changeTab} activeTab={this.state.active_tab}/>
           </div>
         </div>
 
