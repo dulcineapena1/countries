@@ -2,9 +2,10 @@ import React from 'react';
 import ContinentNav from '../ContinentNav';
 import ContinentCard from '../ContinentCard';
 import ContinentCountriesList from '../ContinentCountries/ContinentCountriesList';
+import ContinentCountrySearch from '../ContinentCountrySearch';
 
 const MainContinent = (props) => {
-  const { onChangeTab, activeTab, continentInfo, countries } = props;
+  const { onChangeTab, activeTab, continentInfo, countries, onSearchCountry } = props;
 
   let nav = (
     <ContinentNav onChangeTab={onChangeTab} activeTab={activeTab}/>
@@ -18,6 +19,13 @@ const MainContinent = (props) => {
   if (countries) {
     countries_list = (
       <ContinentCountriesList countries={countries}/>
+    );
+  }
+
+  let country_search;
+  if (countries) {
+    country_search = (
+      <ContinentCountrySearch onSearchCountry={onSearchCountry}/>
     );
   }
 
@@ -37,8 +45,8 @@ const MainContinent = (props) => {
                 </div>
                 <div className='col-4'>
                   <div className='row'>
-                    <div>
-                      Search bar
+                    <div className='col-12'>
+                      {country_search}
                     </div>
                     <div className='col-12'>
                       {countries_list}
