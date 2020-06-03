@@ -91,7 +91,7 @@ class ContinentContainer extends Component {
         <MainContinent
           onChangeTab={this.props.onChangeTab}
           activeTab={this.props.activeTab}
-          continentInfo={this.state.continent_info}
+          continentSummary={this.state.continent_info}
           countries={countries}
           onSearchCountry={this.onSearchCountry}/>
       );

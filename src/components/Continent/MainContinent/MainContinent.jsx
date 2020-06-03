@@ -5,14 +5,14 @@ import ContinentCountriesList from '../ContinentCountries/ContinentCountriesList
 import ContinentCountrySearch from '../ContinentCountrySearch';
 
 const MainContinent = (props) => {
-  const { onChangeTab, activeTab, continentInfo, countries, onSearchCountry } = props;
+  const { onChangeTab, activeTab, continentSummary, countries, onSearchCountry } = props;
 
   let nav = (
     <ContinentNav onChangeTab={onChangeTab} activeTab={activeTab}/>
   );
 
   let card = (
-    <ContinentCard activeTab={activeTab} continentInfo={continentInfo}/>
+    <ContinentCard activeTab={activeTab} continentSummary={continentSummary}/>
   );
 
   let countries_list;

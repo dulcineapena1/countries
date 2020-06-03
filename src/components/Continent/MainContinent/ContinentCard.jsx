@@ -1,10 +1,10 @@
 import React from 'react';
 
 const ContinentCard = (props) => {
-  const { continentSummary } = props;
+  const { continentInfo } = props;
 
   let continent_html = (
-    <div dangerouslySetInnerHTML={{__html: continentSummary}}></div>
+    <div dangerouslySetInnerHTML={{__html: continentInfo}}></div>
   );
 
   return (
