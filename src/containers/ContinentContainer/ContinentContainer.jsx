@@ -6,6 +6,8 @@ class ContinentContainer extends Component {
     active_tab: '',
     continent_info: null,
     countries_in_continent_info: null,
+    active_country_filter: false,
+    filtered_country: null,
   }
 
   componentDidMount = () => {
@@ -58,7 +60,28 @@ class ContinentContainer extends Component {
       .then(res => this.setState({ countries_in_continent_info: res.data.countries }));
   }
 
+  onSearchCountry = (value) => {
+    if (value.length) {
+      this.setState({ active_country_filter: true });
+    } else {
+      this.setState({ active_country_filter: false });
+    }
+
+    let filter_countries = this.state.countries_in_continent_info.filter((country) => {
+      return (country.name.toLowerCase().includes(value.toLowerCase()))
+    });
+
+    this.setState({ filtered_country: filter_countries });
+  }
+
   render() {
+    let countries;
+    if (this.state.active_country_filter) {
+      countries = (this.state.filtered_country);
+    } else {
+      countries = (this.state.countries_in_continent_info);
+    }
+
     let main_continent_element = (
       // loader
       <div>...Loading</div>
@@ -69,7 +92,8 @@ class ContinentContainer extends Component {
           onChangeTab={this.props.onChangeTab}
           activeTab={this.props.activeTab}
           continentInfo={this.state.continent_info}
-          countries={this.state.countries_in_continent_info}/>
+          countries={countries}
+          onSearchCountry={this.onSearchCountry}/>
       );
     }
 
