@@ -12,7 +12,7 @@ class ContinentContainer extends Component {
 
   componentDidMount = () => {
     this.setState({ active_tab: this.props.activeTab },
-      () => this.requestContinentInfo())
+      () => this.requestContinentInfo());
   }
 
   componentDidUpdate = (prevProps) => {

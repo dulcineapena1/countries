@@ -12,17 +12,24 @@ class Main extends Component {
   }
 
   render() {
+    let random_countries_element = (
+      <RandomContainer onClickContinent={this.changeTab}/>
+    );
+
+    let continent_element = (
+      <ContinentContainer onChangeTab={this.changeTab} activeTab={this.state.active_tab}/>
+    );
+
     return (
       <React.Fragment>
         <div className='row'>
           <div className='col-4'>
-            <RandomContainer onClickContinent={this.changeTab}/>
+            {random_countries_element}
           </div>
           <div className='col-8'>
-            <ContinentContainer onChangeTab={this.changeTab} activeTab={this.state.active_tab}/>
+            {continent_element}
           </div>
         </div>
-
       </React.Fragment>
     );
   }

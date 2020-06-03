@@ -30,19 +30,19 @@ const ContinentCountriesCard = (props) => {
           <span className='font-weight-bold'>Native name: </span>
           {native}
         </p>
-        <p class='card-text mb-1'>
+        <p className='card-text mb-1'>
           <span className='font-weight-bold'>Languages: </span>
-          {languages_list}
         </p>
-        <p class='card-text mb-1'>
+        {languages_list}
+        <p className='card-text mb-1'>
           <span className='font-weight-bold'>Capital: </span>
           {capital}
         </p>
-        <p class='card-text mb-1'>
+        <p className='card-text mb-1'>
           <span className='font-weight-bold'>Code: </span>
           {code}
         </p>
-        <p class='card-text mb-1'>
+        <p className='card-text mb-1'>
           <span className='font-weight-bold'>currency: </span>
           {currency}
         </p>

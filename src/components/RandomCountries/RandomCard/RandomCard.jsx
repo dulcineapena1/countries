@@ -21,7 +21,7 @@ const RandomCard = (props) => {
           <span className='font-weight-bold'>Native name: </span>
           {native}
         </p>
-        <p class='card-text'>
+        <p className='card-text'>
           <span className='font-weight-bold'>Continent: </span>
           <a href='#' className='card-link' onClick={() => onClickContinent(continent)}>
             <u>{continent}</u>

@@ -12,12 +12,12 @@ class RandomContainer extends Component {
       String.fromCharCode(65 + Math.floor(Math.random() * 26));
 
     this.setState({ countries_initials: randomInitials },
-      () => { this.requestCountries(); });
+      () => this.requestCountries());
   }
 
   requestCountries = () => {
-    let countries_query = `{ countries(filter: { currency: {regex:"^(${this.state.countries_initials})" } })` +
-      `{ name emoji native continent { name } } }`;
+    let countries_query = `{ countries(filter: { currency: { regex:"^(${this.state.countries_initials})" } })
+      { name emoji native continent { name } } }`;
 
     fetch('https://countries.trevorblades.com/', {
       method: 'POST',
