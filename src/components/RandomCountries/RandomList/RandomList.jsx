@@ -2,7 +2,7 @@ import React from 'react';
 import RandomCard from '../RandomCard';
 
 const RandomList = (props) => {
-  const { countries } = props;
+  const { countries, onClickContinent } = props;
 
   let cards_list = (
     countries.map((country, k) => {
@@ -12,7 +12,8 @@ const RandomList = (props) => {
             name={country.name}
             native={country.native}
             continent={country.continent.name}
-            flag={country.emoji}/>
+            flag={country.emoji}
+            onClickContinent={onClickContinent}/>
         </div>
       )
     })

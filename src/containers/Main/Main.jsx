@@ -16,7 +16,7 @@ class Main extends Component {
       <React.Fragment>
         <div className='row'>
           <div className='col-4'>
-            <RandomContainer/>
+            <RandomContainer onClickContinent={this.changeTab}/>
           </div>
           <div className='col-8'>
             <ContinentContainer onChangeTab={this.changeTab} activeTab={this.state.active_tab}/>

@@ -38,7 +38,9 @@ class RandomContainer extends Component {
       <div>...Loading</div>
     );
     if (this.state.countries_info) {
-      random_list_element = (<RandomList countries={this.state.countries_info}/>);
+      random_list_element = (
+        <RandomList countries={this.state.countries_info} onClickContinent={this.props.onClickContinent}/>
+      );
     }
 
     return (

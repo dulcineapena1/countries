@@ -2,7 +2,7 @@ import React from 'react';
 import './RandomCard.css';
 
 const RandomCard = (props) => {
-  const {name, native, continent, flag} = props;
+  const { name, native, continent, flag, onClickContinent } = props;
 
   let flag_element = (
     <div className='flagContainer mr-2'>
@@ -23,10 +23,12 @@ const RandomCard = (props) => {
         </p>
         <p class='card-text'>
           <span className='font-weight-bold'>Continent: </span>
-          <a href='#' className='card-link'><u>{continent}</u></a>
+          <a href='#' className='card-link' onClick={() => onClickContinent(continent)}>
+            <u>{continent}</u>
+          </a>
         </p>
       </div>
-      </div>
+    </div>
   );
 
   return (
