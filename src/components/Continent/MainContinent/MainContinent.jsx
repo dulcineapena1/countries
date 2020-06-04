@@ -17,7 +17,6 @@ const MainContinent = (props) => {
   );
 
   let countries_list = (
-    // loader
     <div>...Loading</div>
   );
   if (countries) {

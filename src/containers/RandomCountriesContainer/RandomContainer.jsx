@@ -34,7 +34,6 @@ class RandomContainer extends Component {
 
   render() {
     let random_list_element = (
-      // Show loader
       <div>...Loading</div>
     );
     if (this.state.countries_info) {

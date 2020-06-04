@@ -84,7 +84,6 @@ class ContinentContainer extends Component {
     }
 
     let main_continent_element = (
-      // loader
       <div>...Loading</div>
     );
     if (this.state.continent_info) {
