@@ -2,6 +2,7 @@
   width: 100%;
   border: 1px solid darkgray;
   outline-style: none !important;
+  border-radius: 30px;
 }
 
 .searchIcon {

@@ -28,10 +28,10 @@ class Main extends Component {
               <h1 className='font-weight-bold pl-3'>Continents</h1>
             </div>
             <div className='row'>
-              <div className='col-3'>
+              <div className='col-12 col-md-3 mb-3 mb-md-0'>
                 {random_countries_element}
               </div>
-              <div className='col-9'>
+              <div className='col-12 col-md-9'>
                 {continent_element}
               </div>
             </div>
