@@ -1,0 +1,28 @@
+.flagContainer {
+  font-size: 40px;
+}
+
+.flagLine {
+  height: 66px;
+  width: 5px;
+  background-color: darkgray;
+  position: relative;
+  top: -18px;
+  left: 3px;
+  border-top: 11px solid white;
+}
+
+.flagCircule {
+  width: 9px;
+  height: 9px;
+  border-radius: 50px;
+  background-color: darkgray;
+  position: relative;
+  top: -75px;
+  left: 1px;
+}
+
+.flagElement {
+  position: relative;
+  top: -14px;
+}
