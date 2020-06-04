@@ -24,7 +24,7 @@ class ContinentContainer extends Component {
   }
 
   requestContinentInfo = () => {
-    let query = `http://en.wikipedia.org/w/api.php?origin=*&action=query&prop=extracts&format=json&exintro=&rvsection=0&rvparse&titles=${this.state.active_tab}`
+    let query = `https://en.wikipedia.org/w/api.php?origin=*&action=query&prop=extracts&format=json&exintro=&titles=${this.state.active_tab}`
 
     fetch(query)
       .then(res => res.json())

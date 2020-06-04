@@ -1,1 +1,11 @@
+.countrySearchInput {
+  width: 100%;
+  border: 1px solid darkgray;
+  outline-style: none !important;
+}
 
+.searchIcon {
+  position: relative;
+  right: 90%;
+  top: 15px;
+}

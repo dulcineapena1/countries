@@ -3,6 +3,7 @@ import ContinentNav from '../ContinentNav';
 import ContinentCard from '../ContinentCard';
 import ContinentCountriesList from '../ContinentCountries/ContinentCountriesList';
 import ContinentCountrySearch from '../ContinentCountrySearch';
+import './MainContinent.css';
 
 const MainContinent = (props) => {
   const { onChangeTab, activeTab, continentSummary, countries, onSearchCountry } = props;
@@ -40,19 +41,21 @@ const MainContinent = (props) => {
             <div className='col-12'>
               {nav}
             </div>
-            <div className='col-12'>
-              <div className='row'>
-                <div className='col-8'>
-                  <h1>{activeTab}</h1>
-                  {card}
-                </div>
-                <div className='col-4'>
-                  <div className='row'>
-                    <div className='col-12'>
-                      {country_search}
-                    </div>
-                    <div className='col-12'>
-                      {countries_list}
+            <div className='infoContainer'>
+              <div className='col-12 p-4'>
+                <div className='row'>
+                  <div className='col-8'>
+                    <h1>{activeTab}</h1>
+                    {card}
+                  </div>
+                  <div className='col-4'>
+                    <div className='row'>
+                      <div className='col-12'>
+                        {country_search}
+                      </div>
+                      <div className='col-12'>
+                        {countries_list}
+                      </div>
                     </div>
                   </div>
                 </div>

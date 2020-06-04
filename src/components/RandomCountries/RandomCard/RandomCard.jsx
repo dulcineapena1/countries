@@ -5,8 +5,14 @@ const RandomCard = (props) => {
   const { name, native, continent, flag, onClickContinent } = props;
 
   let flag_element = (
-    <div className='flagContainer mr-2'>
-      {flag}
+    <div className='flagContainer mr-2 d-flex'>
+      <div>
+        <div className='flagLine'></div>
+        <div className='flagCircule'></div>
+      </div>
+      <div className='flagElement'>
+        {flag}
+      </div>
     </div>
   );
 
@@ -20,15 +26,15 @@ const RandomCard = (props) => {
   let continent_element;
   if (continent === 'Antarctica') {
     continent_element = (
-      <p>
+      <span>
         <u>{continent_name}</u>
-      </p>
+      </span>
     );
   } else {
     continent_element = (
-      <p className='card-link' onClick={() => onClickContinent(continent_name)}>
+      <span className='card-link text-primary' onClick={() => onClickContinent(continent_name)}>
         <u>{continent_name}</u>
-      </p>
+      </span>
     );
   }
 

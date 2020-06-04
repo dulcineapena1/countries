@@ -1,23 +1,24 @@
 import React from 'react';
+import './ContinentCountriesCard.css';
 
 const ContinentCountriesCard = (props) => {
   const { name, native, flag, languages, capital, code, currency } = props;
 
   let flag_element = (
-    <div className='flagContainer mr-2'>
-      {flag}
+    <div className='flagContainer mr-2 d-flex'>
+      <div>
+        <div className='flagLine'></div>
+        <div className='flagCircule'></div>
+      </div>
+      <div className='flagElement'>
+        {flag}
+      </div>
     </div>
   );
 
-  let languages_list = (
-    languages.map((lang, k) => {
-      return (
-        <div key={k}>
-          {lang.name}
-        </div>
-      )
-    })
-  );
+  let languages_formatted = (languages.map((lang) => lang.name));
+
+  let languages_list = (languages_formatted.toString());
 
   let card = (
     <div className='card m-2'>
@@ -32,8 +33,8 @@ const ContinentCountriesCard = (props) => {
         </p>
         <p className='card-text mb-1'>
           <span className='font-weight-bold'>Languages: </span>
+          {languages_list}
         </p>
-        {languages_list}
         <p className='card-text mb-1'>
           <span className='font-weight-bold'>Capital: </span>
           {capital}
@@ -43,7 +44,7 @@ const ContinentCountriesCard = (props) => {
           {code}
         </p>
         <p className='card-text mb-1'>
-          <span className='font-weight-bold'>currency: </span>
+          <span className='font-weight-bold'>Currency: </span>
           {currency}
         </p>
       </div>
