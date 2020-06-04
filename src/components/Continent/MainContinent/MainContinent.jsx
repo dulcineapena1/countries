@@ -44,16 +44,16 @@ const MainContinent = (props) => {
             <div className='infoContainer'>
               <div className='col-12 p-4'>
                 <div className='row'>
-                  <div className='col-8'>
+                  <div className='col-12 col-md-8'>
                     <h1>{activeTab}</h1>
                     {card}
                   </div>
-                  <div className='col-4'>
+                  <div className='col-12 col-md-4'>
                     <div className='row'>
                       <div className='col-12'>
                         {country_search}
                       </div>
-                      <div className='col-12'>
+                      <div className='col-12 pl-0'>
                         {countries_list}
                       </div>
                     </div>

@@ -26,3 +26,7 @@
   position: relative;
   top: -14px;
 }
+
+.card-link {
+  cursor: pointer;
+}
