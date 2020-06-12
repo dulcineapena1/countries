@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import MainContinent from '../../components/Continent/MainContinent';
 
 class ContinentContainer extends Component {
@@ -26,13 +27,12 @@ class ContinentContainer extends Component {
   requestContinentInfo = () => {
     let query = `https://en.wikipedia.org/w/api.php?origin=*&action=query&prop=extracts&format=json&exintro=&titles=${this.state.active_tab}`
 
-    fetch(query)
-      .then(res => res.json())
+    axios.get(query)
       .then(res => {
-        let summary = res.query.pages[Object.keys(res.query.pages)[0]].extract;
+        let summary = res.data.query.pages[Object.keys(res.data.query.pages)[0]].extract;
         this.setState({ continent_info: summary });
         this.requestCountriesInfo();
-      })
+      });
   }
 
   requestCountriesInfo = () => {
@@ -49,16 +49,10 @@ class ContinentContainer extends Component {
     let countries_in_continent_query = `{ countries(filter:{continent:{in:["${selected_country_code}"] } }) {
   	   name emoji native languages { name } capital code currency } }`
 
-    fetch('https://countries.trevorblades.com/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json'
-      },
-      body: JSON.stringify({ query: countries_in_continent_query })
+    axios.post('https://countries.trevorblades.com/', {
+      query: countries_in_continent_query
     })
-      .then(res => res.json())
-      .then(res => this.setState({ countries_in_continent_info: res.data.countries }));
+      .then(res => this.setState({ countries_in_continent_info: res.data.data.countries }));
   }
 
   onSearchCountry = (value) => {
