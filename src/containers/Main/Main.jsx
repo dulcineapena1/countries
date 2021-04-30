@@ -1,14 +1,31 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import RandomContainer from '../RandomCountriesContainer';
 import ContinentContainer from '../ContinentContainer';
 
 class Main extends Component {
   state = {
-    active_tab: 'Africa',
+    active_tab: '',
+  }
+
+
+  componentDidMount = () => {
+    let url_params = this.props.match.params.continent;
+
+    if (this.props.match.params && url_params) {
+      this.changeTab(url_params);
+    } else {
+      this.changeTab('Africa');
+    }
   }
 
   changeTab = (tab) => {
-    this.setState({ active_tab: tab });
+    this.setState({ active_tab: tab },
+      () => this.updateHistory());
+  }
+
+  updateHistory = () => {
+    this.props.history.push(`/continents/${this.state.active_tab}`);
   }
 
   render() {
@@ -16,9 +33,12 @@ class Main extends Component {
       <RandomContainer onClickContinent={this.changeTab}/>
     );
 
-    let continent_element = (
-      <ContinentContainer onChangeTab={this.changeTab} activeTab={this.state.active_tab}/>
-    );
+    let continent_element;
+    if (this.state.active_tab.length) {
+      continent_element = (
+        <ContinentContainer onChangeTab={this.changeTab} activeTab={this.state.active_tab}/>
+      );
+    }
 
     return (
       <React.Fragment>
@@ -42,4 +62,4 @@ class Main extends Component {
   }
 }
 
-export default Main;
+export default withRouter(Main);

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import RandomList from '../../components/RandomCountries/RandomList';
 
 class RandomContainer extends Component {
@@ -19,16 +20,10 @@ class RandomContainer extends Component {
     let countries_query = `{ countries(filter: { currency: { regex:"^(${this.state.countries_initials})" } })
       { name emoji native continent { name } } }`;
 
-    fetch('https://countries.trevorblades.com/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json'
-      },
-      body: JSON.stringify({ query: countries_query })
+    axios.post('https://countries.trevorblades.com/', {
+      query: countries_query
     })
-      .then(res => res.json())
-      .then(res => this.setState({ countries_info: res.data.countries }));
+      .then(res => this.setState({ countries_info: res.data.data.countries }));
   }
 
 
